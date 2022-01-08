@@ -1,4 +1,4 @@
-module simplePdf
+module github.com/noelmolinaglez/simplePdf
 
 go 1.15
 
