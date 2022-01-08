@@ -15,5 +15,5 @@ type TitleStruct struct {
 type FontStruct struct {
 	Family string
 	Style  string
-	Size   int
+	Size   float64
 }
