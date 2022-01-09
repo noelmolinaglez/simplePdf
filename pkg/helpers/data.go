@@ -39,3 +39,12 @@ func CreateSimpleTitle(content string) dto.TitleStruct {
 	}
 
 }
+
+func CreateSimpleDoc() dto.PDFDoc {
+	return dto.PDFDoc{
+		Orientation: "L",
+		Unit:        "mm",
+		Size:        "letter",
+		FontDir:     "",
+	}
+}
