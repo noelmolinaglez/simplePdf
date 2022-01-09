@@ -23,3 +23,13 @@ type CellStruct struct {
 	Width  float64
 	Height float64
 }
+
+type ColorStruct struct {
+	R int
+	G int
+	B int
+}
+
+type TableStruct struct {
+	Font FontStruct
+}
