@@ -38,7 +38,8 @@ type ColorStruct struct {
 }
 
 type TableStruct struct {
-	HeaderFont FontStruct
-	BodyFont   FontStruct
-	Color      ColorStruct
+	HeaderFont  FontStruct
+	BodyFont    FontStruct
+	HeaderColor ColorStruct
+	BodyColor   ColorStruct
 }
