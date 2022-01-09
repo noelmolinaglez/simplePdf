@@ -16,3 +16,26 @@ func CreateSimpleCell(content string) dto.CellStruct {
 	}
 
 }
+
+func CreateSimpleTitle(content string) dto.TitleStruct {
+	return dto.TitleStruct{
+		Title: content,
+		Font: dto.FontStruct{
+			Family: "Times",
+			Style:  "B",
+			Size:   22,
+		},
+		Cell: dto.CellStruct{
+			Width:   0,
+			Height:  10,
+			Content: content,
+			Border:  "1",
+			Ln:      0,
+			Align:   "C",
+			Fill:    false,
+			Link:    0,
+			LinkStr: "",
+		},
+	}
+
+}
