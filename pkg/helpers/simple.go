@@ -37,11 +37,12 @@ func GenericTable(pdf *gofpdf.Fpdf, data []interfaces.SimpleDoc, table dto.Table
 	for _, value := range headers {
 		pdf.CellFormat(value.Width, value.Height, value.Content, value.Border, value.Ln, value.Align, value.Fill, value.Link, value.LinkStr)
 	}
-
+	pdf.Ln(-1)
 	for _, record := range data {
 		for _, value := range record.GetValues() {
 			pdf.CellFormat(value.Width, value.Height, value.Content, value.Border, value.Ln, value.Align, value.Fill, value.Link, value.LinkStr)
 		}
+		pdf.Ln(-1)
 	}
 
 	pdf.Ln(12)
