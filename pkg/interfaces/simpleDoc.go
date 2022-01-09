@@ -1,6 +1,8 @@
 package interfaces
 
+import "github.com/noelmolinaglez/simplePdf/pkg/dto"
+
 type SimpleDoc interface {
-	GetHeaders() map[string]string
-	GetValues() map[string]string
+	GetHeaders() []dto.CellStruct
+	GetValues() []dto.CellStruct
 }
