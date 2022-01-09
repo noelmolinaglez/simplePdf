@@ -20,8 +20,15 @@ type FontStruct struct {
 }
 
 type CellStruct struct {
-	Width  float64
-	Height float64
+	Width   float64
+	Height  float64
+	Content string
+	Border  string
+	Ln      int
+	Align   string
+	Fill    bool
+	Link    string
+	LinkStr string
 }
 
 type ColorStruct struct {
