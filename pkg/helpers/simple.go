@@ -33,14 +33,15 @@ func GenericTable(pdf *gofpdf.Fpdf, data []interfaces.SimpleDoc, table dto.Table
 	pdf.SetFillColor(table.Color.R, table.Color.G, table.Color.B)
 
 	headers := data[0].GetHeaders()
+	size := GetRowWidth(pdf)
 
 	for _, value := range headers {
-		pdf.CellFormat(value.Width, value.Height, value.Content, value.Border, value.Ln, value.Align, value.Fill, value.Link, value.LinkStr)
+		pdf.CellFormat(value.Width*size, value.Height, value.Content, value.Border, value.Ln, value.Align, value.Fill, value.Link, value.LinkStr)
 	}
 	pdf.Ln(-1)
 	for _, record := range data {
 		for _, value := range record.GetValues() {
-			pdf.CellFormat(value.Width, value.Height, value.Content, value.Border, value.Ln, value.Align, value.Fill, value.Link, value.LinkStr)
+			pdf.CellFormat(value.Width*size, value.Height, value.Content, value.Border, value.Ln, value.Align, value.Fill, value.Link, value.LinkStr)
 		}
 		pdf.Ln(-1)
 	}
