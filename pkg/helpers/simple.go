@@ -29,8 +29,8 @@ func SaveDoc(pdf *gofpdf.Fpdf, fileName string) error {
 }
 
 func GenericTable(pdf *gofpdf.Fpdf, data []interfaces.SimpleDoc, table dto.TableStruct) *gofpdf.Fpdf {
-	pdf.SetFont(table.Font.Family, table.Font.Style, table.Font.Size)
-	pdf.SetFillColor(table.Color.R, table.Color.G, table.Color.B)
+	pdf.SetFont(table.HeaderFont.Family, table.HeaderFont.Style, table.HeaderFont.Size)
+	pdf.SetFillColor(table.HeaderColor.R, table.HeaderColor.G, table.HeaderColor.B)
 
 	headers := data[0].GetHeaders()
 	size := GetRowWidth(pdf)
@@ -39,6 +39,10 @@ func GenericTable(pdf *gofpdf.Fpdf, data []interfaces.SimpleDoc, table dto.Table
 		pdf.CellFormat(value.Width*size, value.Height, value.Content, value.Border, value.Ln, value.Align, value.Fill, value.Link, value.LinkStr)
 	}
 	pdf.Ln(-1)
+
+	pdf.SetFont(table.BodyFont.Family, table.BodyFont.Style, table.BodyFont.Size)
+	pdf.SetFillColor(table.BodyColor.R, table.BodyColor.G, table.BodyColor.B)
+
 	for _, record := range data {
 		for _, value := range record.GetValues() {
 			pdf.CellFormat(value.Width*size, value.Height, value.Content, value.Border, value.Ln, value.Align, value.Fill, value.Link, value.LinkStr)
