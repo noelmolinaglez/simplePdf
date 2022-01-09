@@ -27,7 +27,7 @@ type CellStruct struct {
 	Ln      int
 	Align   string
 	Fill    bool
-	Link    string
+	Link    int
 	LinkStr string
 }
 
@@ -38,5 +38,6 @@ type ColorStruct struct {
 }
 
 type TableStruct struct {
-	Font FontStruct
+	Font  FontStruct
+	Color ColorStruct
 }
