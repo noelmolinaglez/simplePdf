@@ -46,5 +46,6 @@ func CreateSimpleDoc() dto.PDFDoc {
 		Unit:        "mm",
 		Size:        "letter",
 		FontDir:     "",
+		Path:        "",
 	}
 }

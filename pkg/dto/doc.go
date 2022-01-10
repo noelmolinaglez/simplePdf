@@ -5,6 +5,7 @@ type PDFDoc struct {
 	Unit        string
 	Size        string
 	FontDir     string
+	Path        string
 }
 
 type TitleStruct struct {
