@@ -12,5 +12,5 @@ func GenerateSimpleTable(doc dto.PDFDoc, title dto.TitleStruct, data []interface
 
 	pdf = helpers.GenericTable(pdf, data, table)
 
-	_ = helpers.SaveDoc(pdf, title.Title)
+	_ = helpers.SaveDoc(pdf, doc.Path, title.Title)
 }

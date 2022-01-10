@@ -24,8 +24,8 @@ func CreateDoc(doc dto.PDFDoc, title dto.TitleStruct) *gofpdf.Fpdf {
 	return pdf
 }
 
-func SaveDoc(pdf *gofpdf.Fpdf, fileName string) error {
-	name := fmt.Sprintf("%s.pdf", fileName)
+func SaveDoc(pdf *gofpdf.Fpdf, path string, fileName string) error {
+	name := fmt.Sprintf("%s/%s.pdf", path, fileName)
 	return pdf.OutputFileAndClose(name)
 }
 
