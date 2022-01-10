@@ -5,6 +5,7 @@ import (
 	"github.com/jung-kurt/gofpdf"
 	"github.com/noelmolinaglez/simplePdf/pkg/dto"
 	"github.com/noelmolinaglez/simplePdf/pkg/interfaces"
+	"os"
 )
 
 //Creates a one page pdf with a title
@@ -25,6 +26,14 @@ func CreateDoc(doc dto.PDFDoc, title dto.TitleStruct) *gofpdf.Fpdf {
 }
 
 func SaveDoc(pdf *gofpdf.Fpdf, path string, fileName string) error {
+
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		err := os.MkdirAll(path, os.FileMode(0700))
+		if err != nil {
+
+		}
+	}
+
 	name := fmt.Sprintf("%s/%s.pdf", path, fileName)
 	return pdf.OutputFileAndClose(name)
 }
