@@ -13,9 +13,8 @@ func GetRowWidth(pdf *gofpdf.Fpdf) float64 {
 }
 
 func DrawCurrentPageNumber(pdf *gofpdf.Fpdf) {
-	count := pdf.PageCount()
 	pdf.SetY(-15)
 	pdf.SetFont("Arial", "I", 8)
-	pdf.CellFormat(0, 10, fmt.Sprintf(" %d/%d", pdf.PageNo(), count),
+	pdf.CellFormat(0, 10, fmt.Sprintf(" %d/{nb}", pdf.PageNo()),
 		"", 0, "C", false, 0, "")
 }

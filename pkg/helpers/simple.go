@@ -13,7 +13,7 @@ func CreateDoc(doc dto.PDFDoc, title dto.TitleStruct) *gofpdf.Fpdf {
 	pdf := gofpdf.New(doc.Orientation, doc.Unit, doc.Size, doc.FontDir)
 
 	pdf.SetTitle(title.Title, true)
-
+	pdf.AliasNbPages("")
 	pdf.AddPage()
 	size := GetRowWidth(pdf)
 	pdf.SetFont(title.Font.Family, title.Font.Style, title.Font.Size)
