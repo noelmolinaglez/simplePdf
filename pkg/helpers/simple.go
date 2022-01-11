@@ -20,9 +20,6 @@ func CreateDoc(doc dto.PDFDoc, title dto.TitleStruct) *gofpdf.Fpdf {
 	pdf.CellFormat(title.Cell.Width*size, title.Cell.Height, title.Title, "", 0, title.Cell.Align, title.Cell.Fill, title.Cell.Link, title.Cell.LinkStr)
 
 	pdf.Ln(12)
-	pdf.SetFooterFunc(func() {
-		DrawCurrentPageNumber(pdf)
-	})
 	return pdf
 }
 
@@ -34,7 +31,9 @@ func SaveDoc(pdf *gofpdf.Fpdf, path string, fileName string) error {
 
 		}
 	}
-
+	pdf.SetFooterFunc(func() {
+		DrawCurrentPageNumber(pdf)
+	})
 	name := fmt.Sprintf("%s/%s.pdf", path, fileName)
 	return pdf.OutputFileAndClose(name)
 }
