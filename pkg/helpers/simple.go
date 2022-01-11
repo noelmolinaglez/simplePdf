@@ -15,13 +15,14 @@ func CreateDoc(doc dto.PDFDoc, title dto.TitleStruct) *gofpdf.Fpdf {
 	pdf.SetTitle(title.Title, true)
 
 	pdf.AddPage()
-
 	size := GetRowWidth(pdf)
 	pdf.SetFont(title.Font.Family, title.Font.Style, title.Font.Size)
 	pdf.CellFormat(title.Cell.Width*size, title.Cell.Height, title.Title, "", 0, title.Cell.Align, title.Cell.Fill, title.Cell.Link, title.Cell.LinkStr)
 
 	pdf.Ln(12)
-
+	pdf.SetFooterFunc(func() {
+		DrawCurrentPageNumber(pdf)
+	})
 	return pdf
 }
 
